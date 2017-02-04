@@ -107,6 +107,7 @@ describe('Referrals API routes', () => {
         res.body.email.should.eql('Updated email');
         res.body.should.have.property('phone');
         res.body.phone.should.eql('uuu-ppp-date');
+        done();
       });
     });
   });

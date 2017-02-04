@@ -40,4 +40,18 @@ router.post('/', (req, res, next) => {
   });
 });
 
+// *** PUT create referral *** //
+router.put('/:id', (req, res, next) => {
+  queries.updateReferral(req.params.id, req.body)
+  .then((referralID) => {
+    return queries.getSingleReferral(req.params.id);
+  })
+  .then((referral) => {
+    res.status(200).json(referral);
+  })
+  .catch((error) => {
+    next(error);
+  });
+});
+
 module.exports = router;

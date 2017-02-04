@@ -5,6 +5,7 @@
   "author": "Matthew Gordon",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.16.0",
     "express": "^4.14.1",
     "knex": "^0.12.6",
     "pg": "^6.1.2"

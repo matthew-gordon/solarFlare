@@ -12,5 +12,5 @@ app.get('/', (req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port} ...`);
+  console.log(`Solar flare is running on port ${port}...`);
 });

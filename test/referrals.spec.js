@@ -42,8 +42,8 @@ describe('Referrals API routes', () => {
         res.should.be.json;
         res.body.should.be.a('array');
         res.body.length.should.eql(5);
-        res.body[0].should.have.property('username');
-        res.body[0].username.should.eql('chris');
+        res.body[0].should.have.property('name');
+        res.body[0].name.should.eql('Bill Smith');
         done();
       })
     });

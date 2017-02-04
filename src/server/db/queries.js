@@ -24,6 +24,10 @@ function updateReferral(referralID, updates) {
   return referrals().where('id', parseInt(referralID)).update(updates);
 }
 
+function deleteReferral(referralID) {
+  return referrals().where('id', parseInt(referralID)).del();
+}
+
 // function getAllMessagesWithUsernames() {
 //   return messages()
 //     .join('users', 'messages.user_id', '=', 'users.id')
@@ -34,5 +38,6 @@ module.exports = {
   getAllReferrals: getAllReferrals,
   getSingleReferral: getSingleReferral,
   addReferral: addReferral,
-  updateReferral: updateReferral
+  updateReferral: updateReferral,
+  deleteReferral: deleteReferral
 };

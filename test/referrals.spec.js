@@ -141,6 +141,7 @@ describe('Referrals API routes', () => {
           res.should.have.status(200);
           res.body.should.be.a('array');
           res.body.length.should.eql(4);
+          done();
         });
       });
     });

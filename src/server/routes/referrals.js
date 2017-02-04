@@ -59,4 +59,21 @@ router.put('/:id', (req, res, next) => {
   });
 });
 
+// *** DELETE referral by id *** //
+router.delete('/:id', (req, res, next) => {
+  queries.getSingleReferral(req.params.id)
+  .then((referral) => {
+    queries.deleteReferral(req.params.id)
+    .then(() => {
+      res.status(200).json(referral);
+    })
+    .catch((error) => {
+      next(error);
+    });
+  })
+  .catch((error) => {
+    next(error);
+  });
+});
+
 module.exports = router;

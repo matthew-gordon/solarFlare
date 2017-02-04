@@ -61,29 +61,29 @@ function deleteUser(userID) {
 // *** users referrals queries *** //
 
 function getAllUsersReferrals() {
-  return users().select();
+  return usersReferrals().select();
 }
 
-function getSingleUsersReferral(userReferralID) {
-  return users().where('id', parseInt(userReferralID)).first();
+function getSingleUsersReferrals(userReferralID) {
+  return usersReferrals().where('id', parseInt(userReferralID)).first();
 }
 
 function addUsersReferral(userReferral) {
-  return users().insert(userReferral, 'id');
+  return usersReferrals().insert(userReferral, 'id');
 }
 
 function updateUsersReferral(userReferralID, updates) {
-  return users().where('id', parseInt(userReferralID)).update(updates);
+  return usersReferrals().where('id', parseInt(userReferralID)).update(updates);
 }
 
 function deleteUsersReferral(userReferralID) {
-  return users().where('id', parseInt(userReferralID)).del();
+  return usersReferrals().where('id', parseInt(userReferralID)).del();
 }
 
 function getAllReferralsWithUsersId() {
-  return usersRef()
-    .join('users', 'messages.user_id', '=', 'users.id')
-    .select('messages.content', 'users.username', 'messages.created_at');
+  return usersReferrals()
+    .join('users_referrals', 'users.user_id', '=', 'users.id')
+    .select('users.name', 'users.email');
 }
 
 module.exports = {
@@ -98,7 +98,7 @@ module.exports = {
   updateUser: updateUser,
   deleteUser: deleteUser,
   getAllUsersReferrals: getAllUsersReferrals,
-  getSingleUsesrReferral: getSingleUsersReferral,
+  getSingleUsersReferrals: getSingleUsersReferrals,
   addUsersReferral: addUsersReferral,
   updateUsersReferral: updateUsersReferral,
   deleteUsersReferral: deleteUsersReferral

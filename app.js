@@ -5,8 +5,9 @@ const express = require('express');
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 
-const referrals = require('./src/server/routes/referrals');
 const users = require('./src/server/routes/users');
+const referrals = require('./src/server/routes/referrals');
+const usersReferrals = require('./src/server/routes/users_referrals');
 
 const app = express();
 
@@ -15,8 +16,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', express.static(path.join(__dirname, 'src/client')));
 
-app.use('/referrals', referrals);
 app.use('/users', users);
+app.use('/referrals', referrals);
+app.use('/users_referrals', usersReferrals);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

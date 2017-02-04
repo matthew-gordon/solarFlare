@@ -44,7 +44,7 @@ describe('Users Referrals API routes', () => {
         res.body.length.should.eql(5);
         res.body[0].should.have.property('user_id');
         res.body[0].user_id.should.eql(1);
-        res.body[0].should.have.property('refferal_id');
+        res.body[0].should.have.property('referral_id');
         res.body[0].referral_id.should.eql(5);
         done();
       })
@@ -60,7 +60,7 @@ describe('Users Referrals API routes', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('user_id');
-        res.body.usr_id.should.eql(1);
+        res.body.user_id.should.eql(1);
         res.body.should.have.property('referral_id');
         res.body.referral_id.should.eql(4);
         done();
@@ -73,21 +73,19 @@ describe('Users Referrals API routes', () => {
       chai.request(server)
       .post('/users_referrals')
       .send({
-        user_id: 6,
-        referral_id: 6
+        user_id: 20,
+        referral_id: 37,
       })
       .end((err, res) => {
+        console.log(err);
         res.should.have.status(200);
         res.should.be.json;
         res.should.be.a('object');
-        res.body.should.have.property('user_id');
-        res.body.user_id.should.eql(6)
-        res.body.should.have.property('referral_id');
-        res.body.referral_id.should.eql(6);
         done();
       });
     });
   });
+
 
   describe('PUT /users_referrals/:id ', () => {
     it('should update a users referral by id', (done) => {

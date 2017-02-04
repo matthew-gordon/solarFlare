@@ -6,31 +6,31 @@ exports.seed = function(knex, Promise) {
       return knex('users').insert({
         id: 1,
         name: 'chris',
-        email: 'email@email.com'
+        email: 'chris@email.com'
       });
     }).then(function () {
       return knex('users').insert({
         id: 2,
         name: 'ari',
-        email: 'email@email.com'
+        email: 'ari@email.com'
       });
     }).then(function () {
       return knex('users').insert({
         id: 3,
         name: 'matt',
-        email: 'email@email.com'
+        email: 'matt@email.com'
       });
     }).then(function () {
       return knex('users').insert({
         id: 4,
         name: 'liz',
-        email: 'email@email.com'
+        email: 'liz@email.com'
       });
     }).then(function () {
       return knex('users').insert({
         id: 5,
         name: 'laura',
-        email: 'email@email.com'
+        email: 'laura@email.com'
       });
     }).then(() => {
       return knex.raw("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users))");

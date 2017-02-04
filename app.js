@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', express.static(path.join(__dirname, 'src/client')));
 
 app.use('/referrals', referrals);
-// app.use('/users', users);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -6,35 +6,35 @@ exports.seed = function(knex, Promise) {
       return knex('referrals').insert({
         id: 1,
         name: 'Bill Smith',
-        email: 'email@email.com',
+        email: 'bill@email.com',
         phone: '720-555-1234'
       });
     }).then(function () {
       return knex('referrals').insert({
         id: 2,
         name: 'Artisan Water',
-        email: 'email@email.com',
+        email: 'artisan@email.com',
         phone: '720-555-1234'
       });
     }).then(function () {
       return knex('referrals').insert({
         id: 3,
         name: 'Makeit Happen',
-        email: 'email@email.com',
+        email: 'makeit@email.com',
         phone: '720-555-1234'
       });
     }).then(function () {
       return knex('referrals').insert({
         id: 4,
         name: 'like Me',
-        email: 'email@email.com',
+        email: 'likeme@email.com',
         phone: '720-555-1234'
       });
     }).then(function () {
       return knex('referrals').insert({
         id: 5,
         name: 'Laura Bakol',
-        email: 'email@email.com',
+        email: 'laurabakol@email.com',
         phone: '720-555-1234'
       });
     }).then(() => {

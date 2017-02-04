@@ -34,31 +34,41 @@ describe('Referrals API routes', () => {
   });
 
   describe('GET /referrals ', () => {
-    xit('should return all referrals', (done) => {
-      done();
+    it('should return all referrals', (done) => {
+      chai.request(server)
+      .get('/referrals')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body.length.should.eql(5);
+        res.body[0].should.have.property('username');
+        res.body[0].username.should.eql('chris');
+        done();
+      })
     });
   });
 
-  describe('GET /referrals/:id ', () => {
-    xit('should return single referral by id', (done) => {
-      done();
+  xdescribe('GET /referrals/:id ', () => {
+    it('should return single referral by id', (done) => {
+
     });
   });
-  describe('POST /referrals ', () => {
-    xit('should create a new referral', (done) => {
-      done();
+  xdescribe('POST /referrals ', () => {
+    it('should create a new referral', (done) => {
+
     });
   });
 
-  describe('PUT /referrals/:id ', () => {
-    xit('should update a referral by id', (done) => {
-      done();
+  xdescribe('PUT /referrals/:id ', () => {
+    it('should update a referral by id', (done) => {
+
     });
   });
 
-  describe('DELETE /referrals/:id ', () => {
-    xit('should delete a referral by id', (done) => {
-      done();
+  xdescribe('DELETE /referrals/:id ', () => {
+    it('should delete a referral by id', (done) => {
+
     });
   });
 

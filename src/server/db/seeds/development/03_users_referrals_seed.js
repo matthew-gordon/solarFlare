@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
       });
     }).then(function () {
       return knex('users_referrals').insert({
-        id: 5
+        id: 5,
         user_id: 2,
         referral_id: 1
       });

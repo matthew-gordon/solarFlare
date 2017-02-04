@@ -13,25 +13,25 @@ chai.use(chaiHttp);
 
 describe('Users API routes', () => {
 
-  // beforeEach((done) => {
-  //   knex.migrate.rollback()
-  //   .then(() => {
-  //     knex.migrate.latest()
-  //     .then(() => {
-  //       // return knex.seed.run()
-  //       .then(() => {
-  //         done();
-  //       });
-  //     });
-  //   });
-  // });
-  //
-  // afterEach((done) => {
-  //   knex.migrate.rollback()
-  //   .then(() => {
-  //     done();
-  //   });
-  // });
+  beforeEach((done) => {
+    knex.migrate.rollback()
+    .then(() => {
+      knex.migrate.latest()
+      .then(() => {
+        return knex.seed.run()
+        .then(() => {
+          done();
+        });
+      });
+    });
+  });
+
+  afterEach((done) => {
+    knex.migrate.rollback()
+    .then(() => {
+      done();
+    });
+  });
 
   describe('GET /users ', () => {
     xit('should return all users', (done) => {

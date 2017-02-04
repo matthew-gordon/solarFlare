@@ -17,7 +17,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-  res.send('Hello from the GET single route');
+  queries.getSingleReferral(req.params.id)
+  .then((referral) => {
+    res.status(200).json(referral);
+  })
+  .catch((error) => {
+    next(error);
+  });
 });
 
 module.exports = router;

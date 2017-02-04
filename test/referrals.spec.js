@@ -59,12 +59,30 @@ describe('Referrals API routes', () => {
         res.body.should.be.a('object');
         res.body.should.have.property('name');
         res.body.name.should.eql('Artisan Water');
+        done();
       });
     });
   });
-  xdescribe('POST /referrals ', () => {
-    it('should create a new referral', (done) => {
 
+  describe('POST /referrals ', () => {
+    it('should create a new referral', (done) => {
+      chai.request(server)
+      .post('/referrals')
+      .send({
+        name: 'Mateo Gordon',
+        email: 'test@solarflare.com',
+        phone: '720-720-0072'
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.have.property('name');
+        res.body.name.should.eql('Mateo Gordo')
+        res.body.should.have.property('email');
+        res.body.email.should.eql('test@solarflare.com')
+        res.body.should.have.property('phone');
+        res.body.phone.should.eql('720-720-0072')
+      });
     });
   });
 

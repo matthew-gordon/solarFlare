@@ -49,9 +49,17 @@ describe('Referrals API routes', () => {
     });
   });
 
-  xdescribe('GET /referrals/:id ', () => {
+  describe('GET /referrals/:id ', () => {
     it('should return single referral by id', (done) => {
-
+      chai.request(server)
+      .get('/referrals/2')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('name');
+        res.body.name.should.eql('Artisan Water');
+      });
     });
   });
   xdescribe('POST /referrals ', () => {

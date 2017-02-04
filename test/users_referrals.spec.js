@@ -73,8 +73,8 @@ describe('Users Referrals API routes', () => {
       chai.request(server)
       .post('/users_referrals')
       .send({
-        user_id: 20,
-        referral_id: 37,
+        user_id: 3,
+        referral_id: 3,
       })
       .end((err, res) => {
         console.log(err);

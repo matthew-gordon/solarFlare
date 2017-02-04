@@ -6,6 +6,10 @@ function referrals() {
   return knex('referrals');
 }
 
+function users() {
+  return knex('users');
+}
+
 // *** referrals queries *** //
 
 function getAllReferrals() {
@@ -34,10 +38,38 @@ function deleteReferral(referralID) {
 //     .select('messages.content', 'users.username', 'messages.created_at');
 // }
 
+// *** users queries *** //
+
+function getAllUsers() {
+  return users().select();
+}
+
+function getSingleUser(userID) {
+  return users().where('id', parseInt(userID)).first();
+}
+
+function addUser(referral) {
+  return users().insert(referral, 'id');
+}
+
+function updateUser(userID, updates) {
+  return users().where('id', parseInt(userID)).update(updates);
+}
+
+function deleteUser(userID) {
+  return users().where('id', parseInt(userID)).del();
+}
+
+
 module.exports = {
   getAllReferrals: getAllReferrals,
   getSingleReferral: getSingleReferral,
   addReferral: addReferral,
   updateReferral: updateReferral,
-  deleteReferral: deleteReferral
+  deleteReferral: deleteReferral,
+  getAllUsers: getAllUsers,
+  getSingleUser: getSingleUser,
+  addUser: addUser,
+  updateUser: updateUser,
+  deleteUser: deleteUser
 };

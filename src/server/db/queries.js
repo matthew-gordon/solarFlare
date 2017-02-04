@@ -15,6 +15,11 @@ function getAllReferrals() {
 function getSingleReferral(referralID) {
   return referrals().where('id', parseInt(referralID)).first();
 }
+
+function addReferral(referral) {
+  return referrals().insert(referral, 'id');
+}
+
 // function getAllMessagesWithUsernames() {
 //   return messages()
 //     .join('users', 'messages.user_id', '=', 'users.id')
@@ -23,5 +28,6 @@ function getSingleReferral(referralID) {
 
 module.exports = {
   getAllReferrals: getAllReferrals,
-  getSingleReferral: getSingleReferral
+  getSingleReferral: getSingleReferral,
+  addReferral: addReferral
 };

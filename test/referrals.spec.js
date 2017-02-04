@@ -69,26 +69,45 @@ describe('Referrals API routes', () => {
       chai.request(server)
       .post('/referrals')
       .send({
-        name: 'Mateo Gordon',
+        name: 'Mateo Gordo',
         email: 'test@solarflare.com',
         phone: '720-720-0072'
       })
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
+        res.should.be.a('object');
         res.body.should.have.property('name');
         res.body.name.should.eql('Mateo Gordo')
         res.body.should.have.property('email');
         res.body.email.should.eql('test@solarflare.com')
         res.body.should.have.property('phone');
-        res.body.phone.should.eql('720-720-0072')
+        res.body.phone.should.eql('720-720-0072');
+        done();
       });
     });
   });
 
-  xdescribe('PUT /referrals/:id ', () => {
+  describe('PUT /referrals/:id ', () => {
     it('should update a referral by id', (done) => {
-
+      chai.request(server)
+      .put('/referrals/2')
+      .send({
+        name: 'Updated Name',
+        email: 'Updated email',
+        phone: 'uuu-ppp-date'
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.should.be.a('object');
+        res.body.should.have.property('name');
+        res.body.name.should.eql('Updated Name');
+        res.body.should.have.property('email');
+        res.body.email.should.eql('Updated email');
+        res.body.should.have.property('phone');
+        res.body.phone.should.eql('uuu-ppp-date');
+      });
     });
   });
 

@@ -129,7 +129,20 @@ describe('Referrals API routes', () => {
 
   describe('DELETE /referrals/:id ', () => {
     it('should delete a referral by id', (done) => {
-
+      chai.request(server)
+      .delete('/referrals/2')
+      .end((error, response) => {
+        response.should.have.status(200);
+        response.should.be.json;
+        response.body.should.be.a('object');
+        chai.request(server)
+        .get('/referrals')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('array');
+          res.body.length.should.eql(4);
+        });
+      });
     });
   });
 

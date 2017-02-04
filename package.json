@@ -1,0 +1,17 @@
+{
+  "name": "solarFlare",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "Matthew Gordon",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.1",
+    "knex": "^0.12.6",
+    "pg": "^6.1.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0"
+  }
+}

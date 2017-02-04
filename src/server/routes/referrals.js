@@ -42,6 +42,11 @@ router.post('/', (req, res, next) => {
 
 // *** PUT create referral *** //
 router.put('/:id', (req, res, next) => {
+  if(req.body.hasOwnProperty('id')) {
+    return res.status(422).json({
+      error: 'You cannot update the id field'
+    });
+  }
   queries.updateReferral(req.params.id, req.body)
   .then((referralID) => {
     return queries.getSingleReferral(req.params.id);

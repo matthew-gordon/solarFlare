@@ -110,9 +110,24 @@ describe('Referrals API routes', () => {
         done();
       });
     });
+    it('should NOT update a message if the id field is part of the request', (done) => {
+      chai.request(server)
+      .put('/referrals/2')
+      .send({
+        id: 20
+      })
+      .end((err, res) => {
+        res.should.have.status(422);
+        res.should.be.json;  // jshint ignore:line
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.eql('You cannot update the id field');
+        done();
+      });
+    });
   });
 
-  xdescribe('DELETE /referrals/:id ', () => {
+  describe('DELETE /referrals/:id ', () => {
     it('should delete a referral by id', (done) => {
 
     });

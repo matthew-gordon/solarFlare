@@ -1,2 +1,10 @@
-<h1>Hello World from the App Component!</h1>
-<registration-form></registration-form>
+<h1>Hello World from Solar Flare!</h1>
+
+
+<div class="container" ng-if="true">
+  <display></display>
+</div>
+
+<div class="container" ng-if="$ctrl.showForm">
+  <registration-form></registration-form>
+</div>

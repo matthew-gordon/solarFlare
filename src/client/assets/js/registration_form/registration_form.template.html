@@ -1,1 +1,15 @@
-<h2>Hello from the Form!</h2>
+<h2>Please Register</h2>
+
+<form ng-submit="">
+  <div class="row">
+    <div class="tweleve columns">
+      <label for="exampleEmailInput">Name</label>
+      <input class="u-full-width" ng-model="$ctrl.userName" type="email" placeholder="ex. Chris Janin...">
+    </div>
+    <div class="twelve columns">
+      <label for="exampleEmailInput">Email</label>
+      <input ng-model="$ctrl.userEmail" class="u-full-width" type="email" placeholder=" ex. test@mailbox.com">
+    </div>
+  </div>
+  <input class="button-primary" type="submit" value="Submit">
+</form>

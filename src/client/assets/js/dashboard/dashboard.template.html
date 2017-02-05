@@ -1,0 +1,15 @@
+<h3>Hello from the Admin Dashboard</h3>
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in $ctrl.users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</table>

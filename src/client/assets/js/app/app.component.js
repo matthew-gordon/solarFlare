@@ -5,8 +5,8 @@
       templateUrl: './assets/js/app/app.template.html',
       controller: AppController
     });
-    function AppController() {
+    AppController.$inject = ['$http'];
+    function AppController($http) {
       let vm = this;
-      console.log('Sanity Check from app component');
     }
 }());

@@ -392,6 +392,10 @@ hr {
   clear: both; }
 
 /*** CUSTOM CSS ***/
+.text-center {
+  text-align: center;
+}
+
 .button:hover {
   transition: 0.2s;
 }

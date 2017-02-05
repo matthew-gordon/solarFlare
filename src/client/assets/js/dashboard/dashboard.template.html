@@ -4,12 +4,17 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="user in $ctrl.users">
       <td>{{ user.name }}</td>
       <td>{{ user.email }}</td>
+      <td>
+        <a href="#" class="button button-primary">Edit</a>
+        <a href="#" class="button button-primary-red">Delete</a>
+      </td>
     </tr>
   </tbody>
 </table>

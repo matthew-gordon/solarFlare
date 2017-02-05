@@ -391,6 +391,23 @@ hr {
   display: table;
   clear: both; }
 
+/*** CUSTOM CSS ***/
+.button:hover {
+  transition: 0.2s;
+}
+
+.button-primary-red {
+  background: rgba(255, 0, 0, 1);
+  border-color: rgba(255, 0, 0, 1);
+  color: #fff;
+  transition: 0.2s;
+}
+
+.button-primary-red:hover {
+  background: rgba(244, 0, 0, 1);
+  border-color: rgba(244, 0, 0, 1);
+  color: #fff;
+}
 
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

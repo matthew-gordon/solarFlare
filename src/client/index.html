@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Solar Flare</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>Solar Flare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
   <body>
 
-    <h1>Hello World!</h1>
+    <!-- main app shell -->
+    <app></app>
 
-    <script type="text/javascript" src="assets/js/default.js"></script>
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-animate.js"></script>
+
+
+    <!-- app -->
+    <script src="./assets/js/app/app.module.js"></script>
+    <script src="./assets/js/app/app.component.js"></script>
+
   </body>
 </html>

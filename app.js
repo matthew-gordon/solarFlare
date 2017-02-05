@@ -18,7 +18,7 @@ app.use('/', express.static(path.join(__dirname, 'src/client')));
 
 app.use('/users', users);
 app.use('/referrals', referrals);
-app.use('/users_referrals', usersReferrals);
+app.use('/tracking', usersReferrals);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

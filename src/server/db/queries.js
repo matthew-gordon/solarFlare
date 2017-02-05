@@ -80,6 +80,7 @@ function deleteUsersReferral(userReferralID) {
   return usersReferrals().where('id', parseInt(userReferralID)).del();
 }
 
+// *** GET all users referral queries *** //
 function getAllReferralsWithUsersId(userID) {
   return usersReferrals().select().where('user_id', parseInt(userID))
   .join('referrals', 'referrals.id', '=', 'referral_id')

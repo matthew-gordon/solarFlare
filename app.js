@@ -53,7 +53,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Solar flare is running on port ${port}...`);
+  console.log(`Solar flare is running on http://localhost:${port} ...`);
 });
 
 module.exports = app;

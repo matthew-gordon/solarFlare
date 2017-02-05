@@ -1,11 +1,15 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-const knex = require('../knex');
+const knex = require('../db/knex');
 const boom = require('boom');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
+
 const privateKey = process.env.TOKEN_SECRET;
+
+router.use(cookieParser());
 
 //////////////////
 ////// GET

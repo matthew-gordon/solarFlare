@@ -4,18 +4,22 @@ const path = require('path');
 const express = require('express');
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
+const login = require('./src/server/routes/login-route');
 const users = require('./src/server/routes/users');
 const referrals = require('./src/server/routes/referrals');
 const usersReferrals = require('./src/server/routes/users_referrals');
 
 const app = express();
 
+app.use(morgan('short'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', express.static(path.join(__dirname, 'src/client')));
 
+app.use('/login', login);
 app.use('/users', users);
 app.use('/referrals', referrals);
 app.use('/tracking', usersReferrals);

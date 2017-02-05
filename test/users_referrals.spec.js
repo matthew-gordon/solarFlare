@@ -33,10 +33,10 @@ describe('Users Referrals API routes', () => {
     });
   });
 
-  describe('GET /users_referrals ', () => {
+  describe('GET /tracking ', () => {
     it('should return all users referrals', (done) => {
       chai.request(server)
-      .get('/users_referrals')
+      .get('/tracking')
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
@@ -51,10 +51,10 @@ describe('Users Referrals API routes', () => {
     });
   });
 
-  describe('GET /users_referrals/:id ', () => {
+  describe('GET /tracking/:id ', () => {
     it('should return single users referral by id', (done) => {
       chai.request(server)
-      .get('/users_referrals/2')
+      .get('/tracking/2')
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
@@ -68,16 +68,15 @@ describe('Users Referrals API routes', () => {
     });
   });
 
-  describe('POST /users_referrals ', () => {
+  describe('POST /tracking ', () => {
     it('should create a new user referral', (done) => {
       chai.request(server)
-      .post('/users_referrals')
+      .post('/tracking')
       .send({
         user_id: 3,
         referral_id: 3,
       })
       .end((err, res) => {
-        console.log(err);
         res.should.have.status(200);
         res.should.be.json;
         res.should.be.a('object');
@@ -87,10 +86,10 @@ describe('Users Referrals API routes', () => {
   });
 
 
-  describe('PUT /users_referrals/:id ', () => {
+  describe('PUT /tracking/:id ', () => {
     it('should update a users referral by id', (done) => {
       chai.request(server)
-      .put('/users_referrals/2')
+      .put('/tracking/2')
       .send({
         user_id: 2,
         referral_id: 3
@@ -108,7 +107,7 @@ describe('Users Referrals API routes', () => {
     });
     it('should NOT update a users referral if the id field is part of the request', (done) => {
       chai.request(server)
-      .put('/users_referrals/2')
+      .put('/tracking/2')
       .send({
         id: 20
       })
@@ -123,16 +122,16 @@ describe('Users Referrals API routes', () => {
     });
   });
 
-  describe('DELETE /users_referrals/:id ', () => {
+  describe('DELETE /tracking/:id ', () => {
     it('should delete a users referral by id', (done) => {
       chai.request(server)
-      .delete('/users_referrals/2')
+      .delete('/tracking/2')
       .end((error, response) => {
         response.should.have.status(200);
         response.should.be.json;
         response.body.should.be.a('object');
         chai.request(server)
-        .get('/users_referrals')
+        .get('/tracking')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('array');

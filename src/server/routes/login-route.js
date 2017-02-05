@@ -5,7 +5,7 @@ const knex = require('../knex');
 const boom = require('boom');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const privateKey = 'my_awesome_cookie_signing_key';
+const privateKey = process.env.TOKEN_SECRET;
 
 //////////////////
 ////// GET

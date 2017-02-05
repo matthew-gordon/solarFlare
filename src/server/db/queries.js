@@ -80,10 +80,10 @@ function deleteUsersReferral(userReferralID) {
   return usersReferrals().where('id', parseInt(userReferralID)).del();
 }
 
-function getAllReferralsWithUsersId() {
-  return usersReferrals()
-    .join('users_referrals', 'users.user_id', '=', 'users.id')
-    .select('users.name', 'users.email');
+function getAllReferralsWithUsersId(userID) {
+  return usersReferrals().select().where('user_id', parseInt(userID))
+  .join('referrals', 'referrals.id', '=', 'referral_id')
+  .select('referrals.name', 'referrals.phone');
 }
 
 module.exports = {
@@ -101,5 +101,6 @@ module.exports = {
   getSingleUsersReferrals: getSingleUsersReferrals,
   addUsersReferral: addUsersReferral,
   updateUsersReferral: updateUsersReferral,
-  deleteUsersReferral: deleteUsersReferral
+  deleteUsersReferral: deleteUsersReferral,
+  getAllReferralsWithUsersId: getAllReferralsWithUsersId
 };

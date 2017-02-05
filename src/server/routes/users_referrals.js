@@ -15,6 +15,17 @@ router.get('/', (req, res, next) => {
   });
 });
 
+// *** GET all users referrals *** //
+router.get('/:id/referrals/', (req, res, next) => {
+  queries.getAllReferralsWithUsersId(req.params.id)
+  .then((usersReferrals) => {
+    res.status(200).json(usersReferrals);
+  })
+  .catch((error) => {
+    next(error);
+  });
+});
+
 // *** GET single user referral by id *** //
 router.get('/:id', (req, res, next) => {
   queries.getSingleUsersReferrals(req.params.id)

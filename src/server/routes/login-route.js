@@ -6,8 +6,9 @@ const boom = require('boom');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+require('dotenv').config();
 
-const privateKey = process.env.TOKEN_SECRET;
+const privateKey = process.env.JWT_SECRET;
 
 router.use(cookieParser());
 
@@ -17,6 +18,7 @@ router.use(cookieParser());
 // used for checking for an existing signed token
 router.get('/', function(req, res, next) {
     jwt.verify(req.cookies.token, privateKey, function(err, decoded) {
+
         if (err) {
             res.send(false);
         } else {
